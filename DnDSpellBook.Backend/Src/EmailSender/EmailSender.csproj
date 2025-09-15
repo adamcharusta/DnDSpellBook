@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <RootNamespace>DnDSpellBook.EmailSender</RootNamespace>
+    <AssemblyName>DnDSpellBook.EmailSender</AssemblyName>
+    <UserSecretsId>dotnet-EmailSender-33c88209-32fa-4120-8b3e-1988b84df17c</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj"/>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.Email\Infrastructure.Email.csproj"/>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.RabbitMq\Infrastructure.RabbitMq.csproj"/>
+  </ItemGroup>
+</Project>

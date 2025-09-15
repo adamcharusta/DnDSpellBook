@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>DnDSpellBook.Infrastructure</RootNamespace>
+    <AssemblyName>DnDSpellBook.Infrastructure</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\Application.csproj"/>
+    <ProjectReference Include="..\..\Domain\Domain.csproj"/>
+    <ProjectReference Include="..\Infrastructure.Email\Infrastructure.Email.csproj"/>
+    <ProjectReference Include="..\Infrastructure.RabbitMq\Infrastructure.RabbitMq.csproj"/>
+  </ItemGroup>
+
+</Project>
