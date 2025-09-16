@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		docker-compose.dev.yaml = docker-compose.dev.yaml
 		global.json = global.json
 		README.md = README.md
+		.env = .env
+		.env.example = .env.example
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Src\Domain\Domain.csproj", "{C0367F11-4492-4E02-943A-8D5FD3135C5D}"
