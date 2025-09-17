@@ -1,10 +1,11 @@
 using DnDSpellBook.Contracts;
 using DnDSpellBook.Infrastructure.RabbitMq;
+using DnDSpellBook.Infrastructure.Smtp;
 using Serilog;
 
 namespace EmailSender;
 
-public class EmailWorker(IRabbitMqService rabbitMqService) : BackgroundService
+public class EmailWorker(IRabbitMqService rabbitMqService, ISmtpService smtpService) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -23,6 +24,7 @@ public class EmailWorker(IRabbitMqService rabbitMqService) : BackgroundService
 
     private void SendEmail(string to, string subject, string body)
     {
+        smtpService.SendEmail(to, subject, body);
         Log.Information("Sending email to {To} with subject {Subject} and {Body}", to, subject, body);
     }
 }

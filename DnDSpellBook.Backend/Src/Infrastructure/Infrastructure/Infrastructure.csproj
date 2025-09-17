@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Application\Application.csproj"/>
-    <ProjectReference Include="..\Infrastructure.Email\Infrastructure.Email.csproj"/>
+    <ProjectReference Include="..\Infrastructure.Smtp\Infrastructure.Smtp.csproj"/>
     <ProjectReference Include="..\Infrastructure.RabbitMq\Infrastructure.RabbitMq.csproj"/>
   </ItemGroup>
 

@@ -20,7 +20,7 @@
     <ProjectReference Include="..\..\Src\Contracts\Contracts.csproj"/>
     <ProjectReference Include="..\..\Src\Domain\Domain.csproj"/>
     <ProjectReference Include="..\..\Src\EmailSender\EmailSender.csproj"/>
-    <ProjectReference Include="..\..\Src\Infrastructure\Infrastructure.Email\Infrastructure.Email.csproj"/>
+    <ProjectReference Include="..\..\Src\Infrastructure\Infrastructure.Smtp\Infrastructure.Smtp.csproj"/>
     <ProjectReference Include="..\..\Src\Infrastructure\Infrastructure.RabbitMq\Infrastructure.RabbitMq.csproj"/>
     <ProjectReference Include="..\..\Src\Infrastructure\Infrastructure\Infrastructure.csproj"/>
     <ProjectReference Include="..\..\Src\Web\Web.csproj"/>

@@ -41,7 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Src\Infra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.RabbitMq", "Src\Infrastructure\Infrastructure.RabbitMq\Infrastructure.RabbitMq.csproj", "{7E175472-16EB-44B6-B576-844099647ACF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Email", "Src\Infrastructure\Infrastructure.Email\Infrastructure.Email.csproj", "{3CD139A6-600E-4144-A744-87AC4E28B289}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Smtp", "Src\Infrastructure\Infrastructure.Smtp\Infrastructure.Smtp.csproj", "{3CD139A6-600E-4144-A744-87AC4E28B289}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Src\Infrastructure\Infrastructure\Infrastructure.csproj", "{91307E5A-3504-49EB-8A38-4AD3EB5EAE89}"
 EndProject

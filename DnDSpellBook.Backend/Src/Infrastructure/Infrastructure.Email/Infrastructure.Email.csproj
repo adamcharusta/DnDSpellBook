@@ -1,8 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <RootNamespace>DnDSpellBook.Infrastructure.Email</RootNamespace>
-    <AssemblyName>DnDSpellBook.Infrastructure.Email</AssemblyName>
-  </PropertyGroup>
-
-</Project>

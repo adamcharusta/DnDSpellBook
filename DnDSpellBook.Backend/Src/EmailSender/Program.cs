@@ -1,5 +1,6 @@
 using Ardalis.GuardClauses;
 using DnDSpellBook.Infrastructure.RabbitMq;
+using DnDSpellBook.Infrastructure.Smtp;
 using EmailSender;
 using Serilog;
 
@@ -20,6 +21,7 @@ try
 {
     builder.Services.AddHostedService<EmailWorker>();
     builder.Services.UseRabbitMqServices(builder.Configuration);
+    builder.Services.UseSmtpServices(builder.Configuration);
 
     var host = builder.Build();
     host.Run();
