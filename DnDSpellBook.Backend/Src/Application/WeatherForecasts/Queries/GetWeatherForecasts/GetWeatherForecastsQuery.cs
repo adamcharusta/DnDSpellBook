@@ -1,10 +1,12 @@
+using DnDSpellBook.Application.Common.Interfaces;
 using MediatR;
 
 namespace DnDSpellBook.Application.WeatherForecasts.Queries.GetWeatherForecasts;
 
 public record GetWeatherForecastsQuery : IRequest<IEnumerable<WeatherForecast>>;
 
-public class GetWeatherForecastsQueryHandler : IRequestHandler<GetWeatherForecastsQuery, IEnumerable<WeatherForecast>>
+public class GetWeatherForecastsQueryHandler(IEmailService emailService)
+    : IRequestHandler<GetWeatherForecastsQuery, IEnumerable<WeatherForecast>>
 {
     private static readonly string[] Summaries =
     [
@@ -15,6 +17,9 @@ public class GetWeatherForecastsQueryHandler : IRequestHandler<GetWeatherForecas
         CancellationToken cancellationToken)
     {
         var rng = new Random();
+
+        await emailService.SendEmailAsync("test@test.com", "Test",
+            "This is a test email from the WeatherForecasts service.");
 
         var result = Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {

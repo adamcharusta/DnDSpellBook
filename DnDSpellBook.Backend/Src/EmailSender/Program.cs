@@ -1,4 +1,5 @@
 using Ardalis.GuardClauses;
+using DnDSpellBook.Infrastructure.RabbitMq;
 using EmailSender;
 using Serilog;
 
@@ -17,7 +18,8 @@ Log.Logger = new LoggerConfiguration()
 
 try
 {
-    builder.Services.AddHostedService<Worker>();
+    builder.Services.AddHostedService<EmailWorker>();
+    builder.Services.UseRabbitMqServices(builder.Configuration);
 
     var host = builder.Build();
     host.Run();

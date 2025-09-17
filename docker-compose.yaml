@@ -8,7 +8,7 @@ services:
       SA_PASSWORD: "${MSSQL_SA_PASSWORD}"
       ACCEPT_EULA: "${MSSQL_ACCEPT_EULA}"
     volumes:
-      - mssql_dev_data:/var/opt/mssql
+      - mssql_data:/var/opt/mssql
     restart: unless-stopped
     platform: ${PLATFORM}
     networks:
@@ -24,18 +24,37 @@ services:
       - "${SEQ_UI_PORT}:80"
       - "${SEQ_API_PORT}:5341"
     volumes:
-      - seq_dev_data:/data
+      - seq_data:/data
     restart: unless-stopped
     platform: ${PLATFORM}
     networks:
       - seqnet
+  
+  rabbitmq:
+    image: rabbitmq:${RABBITMQ_VERSION}
+    container_name: rabbitmq
+    ports:
+      - "${RABBITMQ_PORT}:5672"
+      - "${RABBITMQ_UI_PORT}:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "${RABBITMQ_DEFAULT_USER}"
+      RABBITMQ_DEFAULT_PASS: "${RABBITMQ_DEFAULT_PASS}"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: unless-stopped
+    platform: ${PLATFORM}
+    networks:
+      - rabbitmqnet
 
 volumes:
-  mssql_dev_data:
-  seq_dev_data:
+  mssql_data:
+  seq_data:
+  rabbitmq_data:
 
 networks:
   seqnet:
     driver: bridge
   mssqlnet:
+    driver: bridge
+  rabbitmqnet:
     driver: bridge
