@@ -1,10 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DnDSpellBook.Infrastructure.RabbitMq;
 
 public class RabbitMqSettings
 {
-    public string? HostName { get; set; }
-    public int Port { get; set; }
-    public string? UserName { get; set; }
-    public string? Password { get; set; }
-    public string? VirtualHost { get; set; }
+    [Required] public required string HostName { get; set; }
+
+    [Range(1, 65535)] public int Port { get; set; }
+
+    [Required] [MaxLength(128)] public required string UserName { get; set; }
+
+    [Required] [MaxLength(128)] public required string Password { get; set; }
+
+    [Required] [MaxLength(128)] public required string VirtualHost { get; set; }
 }

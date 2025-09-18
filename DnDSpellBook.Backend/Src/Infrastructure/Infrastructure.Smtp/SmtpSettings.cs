@@ -1,11 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace DnDSpellBook.Infrastructure.Smtp;
 
 public class SmtpSettings
 {
-    public string? Host { get; set; }
-    public int Port { get; set; }
-    public string? UserName { get; set; }
-    public string? Password { get; set; }
-    public bool UseSsl { get; set; }
-    public string? SenderName { get; set; }
+    [Required] public required string Host { get; init; }
+
+    [Range(1, 65535)] public int Port { get; init; }
+
+    [Required] [EmailAddress] public required string UserName { get; set; }
+
+    [Required] public required string Password { get; set; }
+
+    public bool UseSsl { get; set; } = false;
+
+    [MaxLength(128)] public required string SenderName { get; set; }
 }

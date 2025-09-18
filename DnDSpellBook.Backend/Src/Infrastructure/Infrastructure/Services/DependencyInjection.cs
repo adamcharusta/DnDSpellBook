@@ -7,7 +7,7 @@ internal static class DependencyInjection
 {
     public static IServiceCollection UseServices(this IServiceCollection services)
     {
-        services.AddTransient<IEmailService, EmailService>();
+        services.AddSingleton<IEmailService, EmailService>();
 
         return services;
     }

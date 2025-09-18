@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Ardalis.GuardClauses;
 using DnDSpellBook.Contracts.Common;
+using Microsoft.Extensions.Options;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using RabbitMQ.Client.Exceptions;
@@ -16,15 +17,17 @@ public class RabbitMqService : IRabbitMqService, IAsyncDisposable
     private readonly ConnectionFactory _factory;
     private readonly JsonSerializerOptions _json = new(JsonSerializerDefaults.Web);
 
-    public RabbitMqService(RabbitMqSettings s)
+    public RabbitMqService(IOptions<RabbitMqSettings> options)
     {
+        var settings = options.Value;
+
         _factory = new ConnectionFactory
         {
-            HostName = s.HostName!,
-            Port = s.Port!,
-            UserName = s.UserName!,
-            Password = s.Password!,
-            VirtualHost = s.VirtualHost!,
+            HostName = settings.HostName,
+            Port = settings.Port,
+            UserName = settings.UserName,
+            Password = settings.Password,
+            VirtualHost = settings.VirtualHost,
             AutomaticRecoveryEnabled = true,
             TopologyRecoveryEnabled = true
         };
