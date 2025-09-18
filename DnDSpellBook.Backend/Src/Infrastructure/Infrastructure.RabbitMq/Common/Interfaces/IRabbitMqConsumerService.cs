@@ -1,13 +1,9 @@
 using DnDSpellBook.Contracts.Common;
 
-namespace DnDSpellBook.Infrastructure.RabbitMq;
+namespace DnDSpellBook.Infrastructure.RabbitMq.Common.Interfaces;
 
-public interface IRabbitMqService
+public interface IRabbitMqConsumerService
 {
-    Task PublishAsync<TContract, TMessage>(TContract contract, TMessage message, CancellationToken ct = default)
-        where TContract : BaseContractSettings
-        where TMessage : class;
-
     Task ConsumeAsync<TContract, TMessage>(
         TContract contract,
         Func<TMessage, CancellationToken, Task> onMessageReceived,

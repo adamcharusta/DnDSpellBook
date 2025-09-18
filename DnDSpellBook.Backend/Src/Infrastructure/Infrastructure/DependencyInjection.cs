@@ -14,7 +14,7 @@ public static class DependencyInjection
     {
         services.UseDataServices(configuration);
         services.UseIdentityServices(configuration);
-        services.UseRabbitMqServices(configuration);
+        services.UseRabbitMqPublisherService(configuration);
         services.UseServices();
 
         return services;

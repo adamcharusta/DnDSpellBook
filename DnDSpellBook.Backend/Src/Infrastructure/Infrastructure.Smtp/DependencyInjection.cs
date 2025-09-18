@@ -1,3 +1,6 @@
+using DnDSpellBook.Infrastructure.Smtp.Common.Interfaces;
+using DnDSpellBook.Infrastructure.Smtp.Common.Settings;
+using DnDSpellBook.Infrastructure.Smtp.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,17 +1,18 @@
 using DnDSpellBook.Contracts;
-using DnDSpellBook.Infrastructure.RabbitMq;
-using DnDSpellBook.Infrastructure.Smtp;
+using DnDSpellBook.Infrastructure.RabbitMq.Common.Interfaces;
+using DnDSpellBook.Infrastructure.Smtp.Common.Interfaces;
 using Serilog;
 
 namespace EmailSender;
 
-public class EmailWorker(IRabbitMqService rabbitMqService, ISmtpService smtpService) : BackgroundService
+public class EmailWorker(IRabbitMqConsumerService rabbitMqConsumerService, ISmtpService smtpService) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         while (!stoppingToken.IsCancellationRequested)
         {
-            await rabbitMqService.ConsumeAsync<EmailContractSettings, EmailContract>(new EmailContractSettings(),
+            await rabbitMqConsumerService.ConsumeAsync<EmailContractSettings, EmailContract>(
+                new EmailContractSettings(),
                 async (msg, ct) =>
                 {
                     SendEmail(msg.To, msg.Subject, msg.Body);

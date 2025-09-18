@@ -1,4 +1,4 @@
-namespace DnDSpellBook.Infrastructure.Smtp;
+namespace DnDSpellBook.Infrastructure.Smtp.Common.Interfaces;
 
 public interface ISmtpService
 {

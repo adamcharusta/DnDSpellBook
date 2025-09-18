@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DnDSpellBook.Infrastructure.Smtp;
+namespace DnDSpellBook.Infrastructure.Smtp.Common.Settings;
 
 public class SmtpSettings
 {

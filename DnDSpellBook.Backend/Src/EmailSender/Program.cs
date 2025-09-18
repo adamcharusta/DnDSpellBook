@@ -20,7 +20,7 @@ Log.Logger = new LoggerConfiguration()
 try
 {
     builder.Services.AddHostedService<EmailWorker>();
-    builder.Services.UseRabbitMqServices(builder.Configuration);
+    builder.Services.UseRabbitMqConsumerService(builder.Configuration);
     builder.Services.UseSmtpServices(builder.Configuration);
 
     var host = builder.Build();

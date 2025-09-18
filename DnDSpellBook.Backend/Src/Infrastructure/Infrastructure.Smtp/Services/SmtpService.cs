@@ -1,10 +1,12 @@
+using DnDSpellBook.Infrastructure.Smtp.Common.Interfaces;
+using DnDSpellBook.Infrastructure.Smtp.Common.Settings;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;
 using MimeKit;
 using MimeKit.Text;
 using Serilog;
 
-namespace DnDSpellBook.Infrastructure.Smtp;
+namespace DnDSpellBook.Infrastructure.Smtp.Services;
 
 public class SmtpService(IOptions<SmtpSettings> options) : ISmtpService
 {

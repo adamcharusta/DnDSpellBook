@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DnDSpellBook.Infrastructure.RabbitMq;
+namespace DnDSpellBook.Infrastructure.RabbitMq.Common.Settings;
 
 public class RabbitMqSettings
 {
