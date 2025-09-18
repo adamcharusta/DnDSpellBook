@@ -8,6 +8,7 @@ internal static class DependencyInjection
     public static IServiceCollection UseServices(this IServiceCollection services)
     {
         services.AddSingleton<IEmailService, EmailService>();
+        services.AddScoped<IUser, CurrentUser>();
 
         return services;
     }

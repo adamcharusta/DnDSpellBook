@@ -1,7 +1,8 @@
 using System.Security.Claims;
 using DnDSpellBook.Application.Common.Interfaces;
+using Microsoft.AspNetCore.Http;
 
-namespace DnDSpellBook.Web.Services;
+namespace DnDSpellBook.Infrastructure.Services;
 
 public class CurrentUser(IHttpContextAccessor httpContextAccessor) : IUser
 {
