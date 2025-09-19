@@ -22,7 +22,7 @@ try
     builder.Services
         .UseInfrastructureServices(builder.Configuration)
         .UseApplicationServices()
-        .UseWebServices();
+        .UseWebServices(builder.Configuration);
 
     var app = builder.Build();
 
